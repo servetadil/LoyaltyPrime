@@ -3,7 +3,7 @@ using LoyaltyPrime.Domain.Common;
 
 namespace LoyaltyPrime.Domain.Entities
 {
-    public class Transacation : Entity
+    public class Transaction : Entity
     {
         public int AccountID { get; set;}
 
