@@ -9,7 +9,7 @@ namespace LoyaltyPrime.Infrastructure.Configurations
     {
         public override void Configure(EntityTypeBuilder<Member> builder)
         {
-            builder.ToTable("Accounts", "dbo");
+            builder.ToTable("Member", "dbo");
 
             builder.Property(e => e.Name)
                 .IsRequired()

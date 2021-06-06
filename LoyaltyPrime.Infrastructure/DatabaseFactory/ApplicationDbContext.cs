@@ -2,6 +2,7 @@
 using LoyaltyPrime.Domain.Common;
 using LoyaltyPrime.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
