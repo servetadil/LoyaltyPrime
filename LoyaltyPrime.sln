@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyaltyPrime.Infrastructure
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyaltyPrime.Application", "LoyaltyPrime.Application\LoyaltyPrime.Application.csproj", "{8AAC403C-D7DB-41E6-AD6D-80A53779C64A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CAD33094-1B70-4B94-A623-0DDFF9A2FDAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyaltyPrime.Application.UnitTests", "LoyaltyPrime.Application.UnitTests\LoyaltyPrime.Application.UnitTests.csproj", "{1136DDBD-752A-45E6-90FF-0315BC7E0FBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,10 @@ Global
 		{8AAC403C-D7DB-41E6-AD6D-80A53779C64A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AAC403C-D7DB-41E6-AD6D-80A53779C64A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AAC403C-D7DB-41E6-AD6D-80A53779C64A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1136DDBD-752A-45E6-90FF-0315BC7E0FBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1136DDBD-752A-45E6-90FF-0315BC7E0FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1136DDBD-752A-45E6-90FF-0315BC7E0FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1136DDBD-752A-45E6-90FF-0315BC7E0FBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +56,7 @@ Global
 		{4A07C574-890C-4133-AB17-B8054FEE65F7} = {617EE94A-0806-425D-94E1-9E35D8931C4D}
 		{EF0CA2BE-B95E-4389-AB3F-720A47B01A64} = {06743EC1-BC41-414B-9A66-E24DB6F4A4C3}
 		{8AAC403C-D7DB-41E6-AD6D-80A53779C64A} = {617EE94A-0806-425D-94E1-9E35D8931C4D}
+		{1136DDBD-752A-45E6-90FF-0315BC7E0FBB} = {CAD33094-1B70-4B94-A623-0DDFF9A2FDAE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1513A579-585A-41ED-89E7-B01A74E020F6}

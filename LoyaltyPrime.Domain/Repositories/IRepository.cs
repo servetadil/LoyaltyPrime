@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LoyaltyPrime.Domain.Repository
@@ -26,6 +27,6 @@ namespace LoyaltyPrime.Domain.Repository
 
         Task<T> SingleAsync(Expression<Func<T, bool>> wheres);
 
-        Task SaveChangesAsync();
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

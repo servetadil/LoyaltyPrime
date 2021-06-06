@@ -19,7 +19,7 @@ namespace LoyaltyPrime.Infrastructure
 
         public DbSet<Account> Accounts { get; set; }
 
-        public DbSet<Member> Members { get; set; }
+        public DbSet<Members> Members { get; set; }
 
         public DbSet<Transaction> Transactions { get; set; }
         

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LoyaltyPrime.Domain.Entities
 {
-    public class Member : Entity
+    public class Members : Entity
     {
         public string Name { get; set; }
         

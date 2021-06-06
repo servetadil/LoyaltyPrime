@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LoyaltyPrime.Infrastructure.Configurations
 {
-    public class MemberConfigurations : BaseEntityConfigurations<Member>
+    public class MemberConfigurations : BaseEntityConfigurations<Members>
     {
-        public override void Configure(EntityTypeBuilder<Member> builder)
+        public override void Configure(EntityTypeBuilder<Members> builder)
         {
             builder.ToTable("Member", "dbo");
 
@@ -16,7 +16,7 @@ namespace LoyaltyPrime.Infrastructure.Configurations
                 .HasMaxLength(250);
 
             builder.Property(e => e.Address)
-                .IsRequired().HasDefaultValue(0);
+                .IsRequired().HasMaxLength(250);
         }
     }
 }

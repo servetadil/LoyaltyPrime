@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LoyaltyPrime.Infrastructure.Repositories
@@ -65,12 +66,9 @@ namespace LoyaltyPrime.Infrastructure.Repositories
             return entity;
         }
 
-        public async Task SaveChangesAsync()
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
-            if (await _dbContext.SaveChangesAsync() < 0)
-            {
-                throw new Exception("Cannot save changes in db.");
-            }
+            return await _dbContext.SaveChangesAsync(cancellationToken);
         }
 
         public async Task UpdateAsync(T entity)
