@@ -1,5 +1,6 @@
 using LoyaltyPrime.Application.Configurations;
 using LoyaltyPrime.Infrastructure.Extensions;
+using LoyaltyPrime.Web.Api.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,12 @@ namespace LoyaltyPrime.Web.Api
 
             // Initialize Application Services
             services.AddApplicationServices();
+
+            // Initialize Swagger
+            services.AddSwagger();
+
+            // Add Command & Query Handlers
+            services.AddCommandQueryHandlers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +53,9 @@ namespace LoyaltyPrime.Web.Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // Add SwaggerUI
+            app.UseSwaggerUI();
 
             app.UseEndpoints(endpoints =>
             {

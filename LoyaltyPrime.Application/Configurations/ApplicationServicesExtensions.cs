@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using FluentValidation.AspNetCore;
 using LoyaltyPrime.Application.Member.Commands.CreateMember;
+using static LoyaltyPrime.Application.Member.Commands.CreateMember.CreateMemberCommand;
 
 namespace LoyaltyPrime.Application.Configurations
 {
@@ -21,9 +22,9 @@ namespace LoyaltyPrime.Application.Configurations
             return services;
         }
 
-        public static IServiceCollection AddServiceHandlers(this IServiceCollection services)
+        public static IServiceCollection AddCommandQueryHandlers(this IServiceCollection services)
         {
-
+            services.AddScoped<IRequestHandler<CreateMemberCommand, Unit>, CreateMemberCommandHandler>();
             return services;
         }
     }

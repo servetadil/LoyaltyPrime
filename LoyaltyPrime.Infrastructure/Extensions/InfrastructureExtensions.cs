@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LoyaltyPrime.Domain.Repository;
+using LoyaltyPrime.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,8 @@ namespace LoyaltyPrime.Infrastructure.Extensions
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer("name=ConnectionStrings:LoyaltyPrimeSqlDatabase")
             );
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             return services;
         }
