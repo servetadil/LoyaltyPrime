@@ -30,7 +30,6 @@ namespace LoyaltyPrime.Web.Api.Controllers
             return Ok(result);
         }
 
-
         /// <summary>
         /// Member collects points to an existing account
         /// </summary>
@@ -41,6 +40,20 @@ namespace LoyaltyPrime.Web.Api.Controllers
         public async Task<IActionResult> CollectPoint([FromBody] CollectPointCommand collectPoint)
         {
             var result = await _mediator.Send(collectPoint);
+
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Member redeem points from existing account
+        /// </summary>
+        ///
+        [HttpPost]
+        [Route("redeem-point")]
+        [Produces("application/json")]
+        public async Task<IActionResult> RedeemPoint([FromBody] RedeemPointCommand redeemPoint)
+        {
+            var result = await _mediator.Send(redeemPoint);
 
             return Ok(result);
         }
