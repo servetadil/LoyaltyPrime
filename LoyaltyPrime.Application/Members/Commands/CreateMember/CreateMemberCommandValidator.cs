@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-namespace LoyaltyPrime.Application.Member.Commands.CreateMember
+namespace LoyaltyPrime.Application.Members.Commands.CreateMember
 {
     public class CreateMemberCommandValidator : AbstractValidator<CreateMemberCommand>
     {

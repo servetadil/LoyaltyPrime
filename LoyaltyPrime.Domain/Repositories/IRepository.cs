@@ -13,7 +13,7 @@ namespace LoyaltyPrime.Domain.Repository
     {
         Task CreateAsync(T entity);
 
-        Task DeleteByIdAsync(Guid id);
+        Task DeleteByIdAsync(int id);
 
         Task DeleteAsync(T entity);
 
@@ -23,7 +23,7 @@ namespace LoyaltyPrime.Domain.Repository
 
         IQueryable<T> GetQueryable();
 
-        Task<T> GetAsync(Guid id);
+        Task<T> GetAsync(int id);
 
         Task<T> SingleAsync(Expression<Func<T, bool>> wheres);
 

@@ -36,7 +36,7 @@ namespace LoyaltyPrime.Infrastructure.Repositories
             await Task.FromResult(_dbSet.Remove(entity));
         }
 
-        public async Task DeleteByIdAsync(Guid id)
+        public async Task DeleteByIdAsync(int id)
         {
             var entity = await GetAsync(id);
             await DeleteAsync(entity);
@@ -52,7 +52,7 @@ namespace LoyaltyPrime.Infrastructure.Repositories
             return _dbSet.AsQueryable().AsNoTracking();
         }
 
-        public async Task<T> GetAsync(Guid id)
+        public async Task<T> GetAsync(int id)
         {
             var entity = await _dbSet.FindAsync(id);
 

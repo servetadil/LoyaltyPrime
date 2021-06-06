@@ -1,4 +1,4 @@
-﻿using LoyaltyPrime.Application.Members.Commands.CreateMember;
+﻿using LoyaltyPrime.Application.Accounts.Commands.CreateAccount;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 namespace LoyaltyPrime.Web.Api.Controllers
 {
     [ApiController]
-    public class MemberController : ApiController
+    public class AccountController : ApiController
     {
         private readonly IMediator _mediator;
 
-        public MemberController(IMediator mediator)
+        public AccountController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         /// <summary>
-        /// Create new member
+        /// Create new account for defined member
         /// </summary>
         ///
         [HttpPost]
-        [Route("create-member")]
+        [Route("create-account")]
         [Produces("application/json")]
-        public async Task<IActionResult> CreateMember([FromBody] CreateMemberCommand createMember)
+        public async Task<IActionResult> CreateAccount([FromBody] CreateAccountCommand createAccount)
         {
-            var result = await _mediator.Send(createMember);
+            var result = await _mediator.Send(createAccount);
 
             return Ok(result);
         }

@@ -1,6 +1,6 @@
 ﻿using LoyaltyPrime.Domain.Common;
 
-namespace LoyaltyPrime.Domain
+namespace LoyaltyPrime.Domain.Entities
 {
     public class Account : Entity
     {
@@ -9,5 +9,7 @@ namespace LoyaltyPrime.Domain
         public int Balance { get; set; }
 
         public bool IsActive { get; set; }
+
+        public int MemberID { get; set; }
     }
 }
