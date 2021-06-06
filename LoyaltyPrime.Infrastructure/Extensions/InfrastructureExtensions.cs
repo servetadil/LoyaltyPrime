@@ -2,9 +2,6 @@
 using LoyaltyPrime.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LoyaltyPrime.Infrastructure.Extensions
 {

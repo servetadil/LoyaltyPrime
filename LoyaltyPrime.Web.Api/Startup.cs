@@ -52,10 +52,15 @@ namespace LoyaltyPrime.Web.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             // Add SwaggerUI
             app.UseSwaggerUI();
+
+            // Migrate Db
+            PrepareDatabaseExtensions.PrepareDatabase(app);
 
             app.UseEndpoints(endpoints =>
             {
