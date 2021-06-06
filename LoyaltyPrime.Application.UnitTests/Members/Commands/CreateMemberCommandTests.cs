@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Xunit;
 using static LoyaltyPrime.Application.Members.Commands.CreateMember.CreateMemberCommand;
 
-namespace LoyaltyPrime.Application.UnitTests
+namespace LoyaltyPrime.Application.UnitTests.Accounts.Members
 {
     public class CreateMemberCommandTests : TestBase
     {

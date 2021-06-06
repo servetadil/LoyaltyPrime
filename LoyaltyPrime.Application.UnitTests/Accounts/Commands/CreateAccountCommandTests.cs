@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Xunit;
 using static LoyaltyPrime.Application.Accounts.Commands.CreateAccount.CreateAccountCommand;
 
-namespace LoyaltyPrime.Application.UnitTests
+namespace LoyaltyPrime.Application.UnitTests.Accounts.Commands
 {
     public class CreateAccountCommandTests : TestBase
     {
