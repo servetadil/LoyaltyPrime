@@ -11,20 +11,20 @@ namespace LoyaltyPrime.Infrastructure.Migrations
                 name: "dbo");
 
             migrationBuilder.CreateTable(
-                name: "Member",
+                name: "Members",
                 schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false, defaultValue: "0"),
+                    Address = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Member", x => x.Id);
+                    table.PrimaryKey("PK_Members", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -34,7 +34,8 @@ namespace LoyaltyPrime.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AccountID = table.Column<int>(type: "int", nullable: false),
-                    Balance = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Amount = table.Column<int>(type: "int", nullable: false),
                     CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -61,10 +62,10 @@ namespace LoyaltyPrime.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Accounts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Accounts_Member_MemberID",
+                        name: "FK_Accounts_Members_MemberID",
                         column: x => x.MemberID,
                         principalSchema: "dbo",
-                        principalTable: "Member",
+                        principalTable: "Members",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -86,7 +87,7 @@ namespace LoyaltyPrime.Infrastructure.Migrations
                 name: "Transactions");
 
             migrationBuilder.DropTable(
-                name: "Member",
+                name: "Members",
                 schema: "dbo");
         }
     }

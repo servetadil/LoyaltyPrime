@@ -7,6 +7,8 @@ namespace LoyaltyPrime.Domain.Entities
     {
         public int AccountID { get; set;}
 
-        public int Balance { get; set; }
+        public string Description { get; set; }
+
+        public int Amount { get; set; }
     }
 }

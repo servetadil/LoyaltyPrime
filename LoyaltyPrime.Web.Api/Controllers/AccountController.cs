@@ -1,4 +1,5 @@
-﻿using LoyaltyPrime.Application.Accounts.Commands.CreateAccount;
+﻿using LoyaltyPrime.Application.Accounts.Commands.CollectPoint;
+using LoyaltyPrime.Application.Accounts.Commands.CreateAccount;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -25,6 +26,21 @@ namespace LoyaltyPrime.Web.Api.Controllers
         public async Task<IActionResult> CreateAccount([FromBody] CreateAccountCommand createAccount)
         {
             var result = await _mediator.Send(createAccount);
+
+            return Ok(result);
+        }
+
+
+        /// <summary>
+        /// Member collects points to an existing account
+        /// </summary>
+        ///
+        [HttpPost]
+        [Route("collect-point")]
+        [Produces("application/json")]
+        public async Task<IActionResult> CollectPoint([FromBody] CollectPointCommand collectPoint)
+        {
+            var result = await _mediator.Send(collectPoint);
 
             return Ok(result);
         }

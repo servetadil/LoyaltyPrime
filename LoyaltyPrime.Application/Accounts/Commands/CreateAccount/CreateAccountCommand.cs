@@ -7,7 +7,7 @@ using LoyaltyPrime.Application.Common.Exceptions;
 
 namespace LoyaltyPrime.Application.Accounts.Commands.CreateAccount
 {
-    public class CreateAccountCommand : IRequest<CreateAccountViewModel>
+    public class CreateAccountCommand : IRequest<CreateAccountResultModel>
     {
         public string Name { get; set; }
 
@@ -15,18 +15,23 @@ namespace LoyaltyPrime.Application.Accounts.Commands.CreateAccount
 
         public int MemberID { get; set; }
 
-        public class CreateAccountCommandHandler : IRequestHandler<CreateAccountCommand, CreateAccountViewModel>
+        public class CreateAccountCommandHandler : IRequestHandler<CreateAccountCommand, CreateAccountResultModel>
         {
-            private readonly IRepository<Account> _repository;
+            private readonly IRepository<Member> _memberRepository;
 
-            public CreateAccountCommandHandler(IRepository<Account> repository)
+            private readonly IRepository<Account> _accountRepository;
+
+            public CreateAccountCommandHandler(
+                IRepository<Member> memberRepository, 
+                IRepository<Account> accountRepository)
             {
-                _repository = repository;
+                _memberRepository = memberRepository;
+                _accountRepository = accountRepository;
             }
 
-            public async Task<CreateAccountViewModel> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
+            public async Task<CreateAccountResultModel> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
             {
-                var member = await _repository.GetAsync(request.MemberID);
+                var member = await _memberRepository.GetAsync(request.MemberID);
 
                 if (member == null)
                     throw new NotFoundException(nameof(Member), request.MemberID.ToString());
@@ -39,11 +44,11 @@ namespace LoyaltyPrime.Application.Accounts.Commands.CreateAccount
                     MemberID = member.Id
                 };
 
-                await _repository.CreateAsync(account);
+                await _accountRepository.CreateAsync(account);
 
-                await _repository.SaveChangesAsync(cancellationToken);
+                await _accountRepository.SaveChangesAsync(cancellationToken);
 
-                return new CreateAccountViewModel() { AccountID = account.Id };
+                return new CreateAccountResultModel() { AccountID = account.Id };
             }
         }
     }

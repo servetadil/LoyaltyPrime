@@ -36,8 +36,11 @@ namespace LoyaltyPrime.Web.Api
             // Initialize Swagger
             services.AddSwagger();
 
-            // Add Command & Query Handlers
+            // Initialize Command & Query Handlers
             services.AddCommandQueryHandlers();
+
+            // Initialize Automapper mapping profiles
+            services.AddAutoMapperConfigurations();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

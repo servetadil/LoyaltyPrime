@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoyaltyPrime.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210604234810_LoyaltyPrimeDb")]
+    [Migration("20210606225147_LoyaltyPrimeDb")]
     partial class LoyaltyPrimeDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace LoyaltyPrime.Infrastructure.Migrations
                 .HasAnnotation("ProductVersion", "5.0.6")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("LoyaltyPrime.Domain.Account", b =>
+            modelBuilder.Entity("LoyaltyPrime.Domain.Entities.Account", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -68,9 +68,8 @@ namespace LoyaltyPrime.Infrastructure.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("0");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2");
@@ -85,7 +84,7 @@ namespace LoyaltyPrime.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Member", "dbo");
+                    b.ToTable("Members", "dbo");
                 });
 
             modelBuilder.Entity("LoyaltyPrime.Domain.Entities.Transaction", b =>
@@ -98,11 +97,14 @@ namespace LoyaltyPrime.Infrastructure.Migrations
                     b.Property<int>("AccountID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Balance")
+                    b.Property<int>("Amount")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedDateTime")
                         .HasColumnType("datetime2");
@@ -112,7 +114,7 @@ namespace LoyaltyPrime.Infrastructure.Migrations
                     b.ToTable("Transactions");
                 });
 
-            modelBuilder.Entity("LoyaltyPrime.Domain.Account", b =>
+            modelBuilder.Entity("LoyaltyPrime.Domain.Entities.Account", b =>
                 {
                     b.HasOne("LoyaltyPrime.Domain.Entities.Member", null)
                         .WithMany("Accounts")

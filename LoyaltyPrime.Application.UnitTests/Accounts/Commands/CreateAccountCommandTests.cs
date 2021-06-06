@@ -17,13 +17,15 @@ namespace LoyaltyPrime.Application.UnitTests.Accounts.Commands
     {
 
         protected readonly IRepository<Account> _accountRepository;
+        protected readonly IRepository<Member> _memberRepository;
         private readonly CreateAccountCommandHandler _sut;
         private readonly CreateAccountCommandValidator _sutValidator;
 
         public CreateAccountCommandTests()
         {
             _accountRepository = new Repository<Account>(_context);
-            _sut = new CreateAccountCommandHandler(_accountRepository);
+            _memberRepository = new Repository<Member>(_context);
+            _sut = new CreateAccountCommandHandler(_memberRepository, _accountRepository);
             _sutValidator = new CreateAccountCommandValidator();
         }
 
