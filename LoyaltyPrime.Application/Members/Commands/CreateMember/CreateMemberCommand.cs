@@ -6,13 +6,13 @@ using System.Threading;
 
 namespace LoyaltyPrime.Application.Members.Commands.CreateMember
 {
-    public class CreateMemberCommand : IRequest<CreateMemberViewModel>
+    public class CreateMemberCommand : IRequest<CreateMemberResultModel>
     {
         public string Name { get; set; }
 
         public string Address { get; set; }
 
-        public class CreateMemberCommandHandler : IRequestHandler<CreateMemberCommand, CreateMemberViewModel>
+        public class CreateMemberCommandHandler : IRequestHandler<CreateMemberCommand, CreateMemberResultModel>
         {
             private readonly IRepository<Member> _repository;
 
@@ -21,7 +21,7 @@ namespace LoyaltyPrime.Application.Members.Commands.CreateMember
                 _repository = repository;
             }
 
-            public async Task<CreateMemberViewModel> Handle(CreateMemberCommand request, CancellationToken cancellationToken)
+            public async Task<CreateMemberResultModel> Handle(CreateMemberCommand request, CancellationToken cancellationToken)
             {
                 var member = new Member()
                 {
@@ -33,7 +33,7 @@ namespace LoyaltyPrime.Application.Members.Commands.CreateMember
 
                 await _repository.SaveChangesAsync(cancellationToken);
 
-                return new CreateMemberViewModel() { MemberID = member.Id };
+                return new CreateMemberResultModel() { MemberID = member.Id };
             }
         }
     }

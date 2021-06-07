@@ -26,7 +26,7 @@ namespace LoyaltyPrime.Application.Configurations
 
         public static IServiceCollection AddCommandQueryHandlers(this IServiceCollection services)
         {
-            services.AddScoped<IRequestHandler<CreateMemberCommand, CreateMemberViewModel>, CreateMemberCommandHandler>();
+            services.AddScoped<IRequestHandler<CreateMemberCommand, CreateMemberResultModel>, CreateMemberCommandHandler>();
             services.AddScoped<IRequestHandler<CreateAccountCommand, CreateAccountResultModel>, CreateAccountCommandHandler>();
             return services;
         }
