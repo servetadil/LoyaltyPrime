@@ -2,9 +2,6 @@ using FluentAssertions;
 using LoyaltyPrime.Application.Accounts.Commands.CreateAccount;
 using LoyaltyPrime.Application.Common.Exceptions;
 using LoyaltyPrime.Application.UnitTests.Base;
-using LoyaltyPrime.Domain.Entities;
-using LoyaltyPrime.Domain.Repository;
-using LoyaltyPrime.Infrastructure.Repositories;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,18 +12,29 @@ namespace LoyaltyPrime.Application.UnitTests.Accounts.Commands
 {
     public class CreateAccountCommandTests : TestBase
     {
-
-        protected readonly IRepository<Account> _accountRepository;
-        protected readonly IRepository<Member> _memberRepository;
         private readonly CreateAccountCommandHandler _sut;
         private readonly CreateAccountCommandValidator _sutValidator;
+        private readonly int _testMemberID;
 
         public CreateAccountCommandTests()
         {
-            _accountRepository = new Repository<Account>(_context);
-            _memberRepository = new Repository<Member>(_context);
             _sut = new CreateAccountCommandHandler(_memberRepository, _accountRepository);
             _sutValidator = new CreateAccountCommandValidator();
+            _testMemberID = CreateValidTestMember().Result;
+        }
+
+        [Fact]
+        public async Task Handle_GivenValidRequest_ShouldSuccess()
+        {
+            // Arrange
+            var command = new CreateAccountCommand { Name = "TEST", MemberID = _testMemberID };
+
+            // Act
+            var result = await _sut.Handle(command, CancellationToken.None);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.AccountID.Should().BeGreaterThan(0);
         }
 
         [Fact]
@@ -42,14 +50,13 @@ namespace LoyaltyPrime.Application.UnitTests.Accounts.Commands
             func.Should().Throw<NotFoundException>();
         }
 
-
         [Theory]
-        [InlineData("", 10)]
-        [InlineData(null, 10)]
-        public async Task Handle_GivenNotValidRequest_ShouldThrowValidationException(string name, int memberId)
+        [InlineData("")]
+        [InlineData(null)]
+        public async Task Handle_GivenNotValidRequest_ShouldThrowValidationException(string name)
         {
             // Arrange
-            var command = new CreateAccountCommand { Name = name, MemberID = memberId };
+            var command = new CreateAccountCommand { Name = name, MemberID = _testMemberID };
 
             // Act
             var validationResult = await _sutValidator.ValidateAsync(command);

@@ -1,9 +1,6 @@
 using FluentAssertions;
 using LoyaltyPrime.Application.Members.Commands.CreateMember;
 using LoyaltyPrime.Application.UnitTests.Base;
-using LoyaltyPrime.Domain.Entities;
-using LoyaltyPrime.Domain.Repository;
-using LoyaltyPrime.Infrastructure.Repositories;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
@@ -13,16 +10,13 @@ namespace LoyaltyPrime.Application.UnitTests.Accounts.Members
 {
     public class CreateMemberCommandTests : TestBase
     {
-
-        protected readonly IRepository<Member> _memberRepository;
         private readonly CreateMemberCommandHandler _sut;
         private readonly CreateMemberCommandValidator _sutValidator;
 
         public CreateMemberCommandTests()
         {
-            _memberRepository = new Repository<Member>(_context);
-            _sut = new CreateMemberCommandHandler(_memberRepository);
             _sutValidator = new CreateMemberCommandValidator();
+            _sut = new CreateMemberCommandHandler(_memberRepository);
         }
 
         [Fact]
