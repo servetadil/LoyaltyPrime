@@ -1,7 +1,9 @@
 using FluentAssertions;
 using LoyaltyPrime.Application.Accounts.Commands.CollectPoint;
 using LoyaltyPrime.Application.Common.Exceptions;
+using LoyaltyPrime.Application.Transactions.Events;
 using LoyaltyPrime.Application.UnitTests.Base;
+using Moq;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,6 +37,7 @@ namespace LoyaltyPrime.Application.UnitTests.Accounts.Commands
             // Assert
             result.Should().NotBeNull();
             result.Balance.Should().BeGreaterThan(0);
+            _mockMediator.Verify(m => m.Publish(It.Is<TransactionCreatedEvent>(cc => cc.AccountID == _testAccountID), It.IsAny<CancellationToken>()), Times.Once);
         }
 
         [Fact]

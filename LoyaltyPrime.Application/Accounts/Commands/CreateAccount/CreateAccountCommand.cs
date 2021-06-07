@@ -22,7 +22,7 @@ namespace LoyaltyPrime.Application.Accounts.Commands.CreateAccount
             private readonly IRepository<Account> _accountRepository;
 
             public CreateAccountCommandHandler(
-                IRepository<Member> memberRepository, 
+                IRepository<Member> memberRepository,
                 IRepository<Account> accountRepository)
             {
                 _memberRepository = memberRepository;
@@ -40,16 +40,16 @@ namespace LoyaltyPrime.Application.Accounts.Commands.CreateAccount
                 var account = new Account()
                 {
                     Name = request.Name,
-                    IsActive = false,
+                    IsActive = request.IsActive,
                     MemberID = member.Id
                 };
 
-                await _accountRepository.CreateAsync(account);
+            await _accountRepository.CreateAsync(account);
 
-                await _accountRepository.SaveChangesAsync(cancellationToken);
+            await _accountRepository.SaveChangesAsync(cancellationToken);
 
                 return new CreateAccountResultModel() { AccountID = account.Id };
-            }
         }
     }
+}
 }

@@ -53,7 +53,7 @@ namespace LoyaltyPrime.Application.UnitTests.Base
 
         public async Task<int> CreateInActiveTestAccount()
         {
-            return await CreateTestAccount(true);
+            return await CreateTestAccount(false);
         }
 
         private async Task<int> CreateTestAccount(bool isActive)
