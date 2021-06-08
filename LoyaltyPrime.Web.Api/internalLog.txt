@@ -1,0 +1,10 @@
+2021-06-08 16:08:44.2889 Info Message Template Auto Format enabled
+2021-06-08 16:08:44.3058 Info Loading assembly: NLog.Web.AspNetCore
+2021-06-08 16:08:44.3608 Info Adding target FileTarget(Name=alldata)
+2021-06-08 16:08:44.3696 Info Adding target FileTarget(Name=otherFile-web)
+2021-06-08 16:08:44.4051 Info Validating config: TargetNames=alldata, otherFile-web, ConfigItems=45, FilePath=C:\Users\ServetPC\source\repos\LoyaltyPrime\LoyaltyPrime.Web.Api\bin\Debug\netcoreapp3.1\nlog.config
+2021-06-08 16:11:18.7318 Info Message Template Auto Format enabled
+2021-06-08 16:11:18.7479 Info Loading assembly: NLog.Web.AspNetCore
+2021-06-08 16:11:18.8070 Info Adding target FileTarget(Name=alldata)
+2021-06-08 16:11:18.8146 Info Adding target FileTarget(Name=otherFile-web)
+2021-06-08 16:11:18.8493 Info Validating config: TargetNames=alldata, otherFile-web, ConfigItems=45, FilePath=C:\Users\ServetPC\source\repos\LoyaltyPrime\LoyaltyPrime.Web.Api\bin\Debug\netcoreapp3.1\nlog.config

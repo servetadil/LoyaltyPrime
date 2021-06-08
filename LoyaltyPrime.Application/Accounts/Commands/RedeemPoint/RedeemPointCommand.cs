@@ -43,7 +43,7 @@ namespace LoyaltyPrime.Application.Accounts.Commands.CollectPoint
                     throw new BusinessRuleException("Insufficient balance on this account.");
 
 
-                account.Balance = account.Balance - request.Point;
+                account.Balance -= request.Point;
 
                 await _repository.UpdateAsync(account);
                 await _repository.SaveChangesAsync(cancellationToken);

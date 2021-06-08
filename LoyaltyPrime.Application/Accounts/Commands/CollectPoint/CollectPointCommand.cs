@@ -36,7 +36,7 @@ namespace LoyaltyPrime.Application.Accounts.Commands.CollectPoint
                 if (account == null)
                     throw new NotFoundException(nameof(Account), request.AccountID.ToString());
 
-                account.Balance = account.Balance + request.Point;
+                account.Balance += request.Point;
 
                 await _repository.UpdateAsync(account);
                 await _repository.SaveChangesAsync(cancellationToken);

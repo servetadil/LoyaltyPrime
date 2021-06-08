@@ -1,6 +1,7 @@
 using LoyaltyPrime.Application.Configurations;
 using LoyaltyPrime.Infrastructure.Extensions;
 using LoyaltyPrime.Web.Api.Extensions;
+using LoyaltyPrime.Web.Api.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -64,6 +65,9 @@ namespace LoyaltyPrime.Web.Api
 
             // Migrate Db
             PrepareDatabaseExtensions.PrepareDatabase(app);
+
+            // error handling middleware
+            app.UseMiddleware<ErrorHandlingMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
