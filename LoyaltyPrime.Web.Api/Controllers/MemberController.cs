@@ -1,5 +1,6 @@
 ﻿using LoyaltyPrime.Application.Members.Commands.CreateMember;
 using LoyaltyPrime.Application.Members.Commands.ImportMembers;
+using LoyaltyPrime.Application.Members.Queries.GetMembers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -40,6 +41,20 @@ namespace LoyaltyPrime.Web.Api.Controllers
         public async Task<IActionResult> ImportMembers([FromBody] ImportMembersCommand importMembers)
         {
             var result = await _mediator.Send(importMembers);
+
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Export members with given criterias
+        /// </summary>
+        ///
+        [HttpGet]
+        [Route("export-members")]
+        [Produces("application/json")]
+        public async Task<IActionResult> ExportMembers([FromQuery] GetMembersQuery memberQuery)
+        {
+            var result = await _mediator.Send(memberQuery);
 
             return Ok(result);
         }

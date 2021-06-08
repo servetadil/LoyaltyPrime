@@ -7,6 +7,8 @@ using LoyaltyPrime.Application.Members.Commands.CreateMember;
 using static LoyaltyPrime.Application.Members.Commands.CreateMember.CreateMemberCommand;
 using LoyaltyPrime.Application.Accounts.Commands.CreateAccount;
 using static LoyaltyPrime.Application.Accounts.Commands.CreateAccount.CreateAccountCommand;
+using LoyaltyPrime.Application.Members.Commands.ImportMembers;
+using static LoyaltyPrime.Application.Members.Commands.ImportMembers.ImportMembersCommand;
 
 namespace LoyaltyPrime.Application.Configurations
 {
@@ -28,6 +30,7 @@ namespace LoyaltyPrime.Application.Configurations
         {
             services.AddScoped<IRequestHandler<CreateMemberCommand, CreateMemberResultModel>, CreateMemberCommandHandler>();
             services.AddScoped<IRequestHandler<CreateAccountCommand, CreateAccountResultModel>, CreateAccountCommandHandler>();
+            services.AddScoped<IRequestHandler<ImportMembersCommand, ImportMembersResultModel>, ImportMembersCommandHandler>();
             return services;
         }
 

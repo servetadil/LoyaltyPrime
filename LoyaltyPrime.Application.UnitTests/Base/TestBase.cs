@@ -1,15 +1,13 @@
-﻿using LoyaltyPrime.Application.Accounts.Commands.CreateAccount;
+﻿using AutoMapper;
+using LoyaltyPrime.Application.Accounts.Commands.CreateAccount;
 using LoyaltyPrime.Application.Members.Commands.CreateMember;
 using LoyaltyPrime.Domain.Entities;
 using LoyaltyPrime.Domain.Repository;
 using LoyaltyPrime.Infrastructure;
-using LoyaltyPrime.Infrastructure.DatabaseFactory;
 using LoyaltyPrime.Infrastructure.Repositories;
 using MediatR;
 using Moq;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using static LoyaltyPrime.Application.Accounts.Commands.CreateAccount.CreateAccountCommand;
@@ -23,6 +21,7 @@ namespace LoyaltyPrime.Application.UnitTests.Base
         protected readonly IRepository<Member> _memberRepository;
         protected readonly IRepository<Account> _accountRepository;
         protected readonly Mock<IMediator> _mockMediator;
+
         public TestBase()
         {
             _context = ApplicationDbContextFactory.Create();
