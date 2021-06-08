@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoyaltyPrime.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210606225147_LoyaltyPrimeDb")]
+    [Migration("20210608092729_LoyaltyPrimeDb")]
     partial class LoyaltyPrimeDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

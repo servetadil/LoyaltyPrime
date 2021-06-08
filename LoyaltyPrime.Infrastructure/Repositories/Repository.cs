@@ -1,11 +1,13 @@
-﻿using LoyaltyPrime.Domain.Common;
+﻿using EFCore.BulkExtensions;
+using LoyaltyPrime.Domain.Common;
 using LoyaltyPrime.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,6 +16,7 @@ namespace LoyaltyPrime.Infrastructure.Repositories
     public class Repository<T> : IRepository<T> where T : Entity
     {
         protected readonly ApplicationDbContext _dbContext;
+
         private DbSet<T> _dbSet;
 
         public Repository(ApplicationDbContext dbContext)
@@ -26,6 +29,26 @@ namespace LoyaltyPrime.Infrastructure.Repositories
         {
             entity.CreatedDateTime = DateTime.Now;
             await _dbSet.AddAsync(entity);
+        }
+
+        public async Task BulkInsertAsync(List<T> entities)
+        {
+            await _dbContext.BulkInsertAsync(entities, new BulkConfig { WithHoldlock = false });
+        }
+
+        public async Task<IDbContextTransaction> BeginTransactionAsync()
+        {
+            return await _dbContext.Database.BeginTransactionAsync();
+        }
+
+        public async Task RollbackTransactionAsync()
+        {
+            await _dbContext.Database.RollbackTransactionAsync();
+        }
+
+        public async Task CommitTransactionAsync()
+        {
+            await _dbContext.Database.CommitTransactionAsync();
         }
 
         public async Task DeleteAsync(T entity)

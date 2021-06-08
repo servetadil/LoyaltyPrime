@@ -16,6 +16,8 @@ namespace LoyaltyPrime.Infrastructure.Configurations
 
             builder.Property(e => e.Address)
                 .IsRequired().HasMaxLength(250);
+
+            builder.HasMany(x => x.Accounts);
         }
     }
 }

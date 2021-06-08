@@ -10,6 +10,7 @@ namespace LoyaltyPrime.Application.Configurations
             return new MapperConfiguration(config =>
             {
                 config.AddProfile(new TransactionsMapperProfile());
+                config.AddProfile(new MembersMapperProfile());
                 config.AllowNullCollections = true;
             })
             .CreateMapper();

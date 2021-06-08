@@ -9,6 +9,6 @@ namespace LoyaltyPrime.Domain.Entities
         
         public string Address { get; set; }
 
-        public List<Account> Accounts { get; set; }
+        public virtual List<Account> Accounts { get; set; }
     }
 }
