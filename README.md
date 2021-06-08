@@ -45,10 +45,6 @@ Documentation: [https://docs.microsoft.com/en-us/ef/core/](https://docs.microsof
 
 Documentation: [https://github.com/jbogard/MediatR/wiki](https://github.com/jbogard/MediatR/wiki)
 
-**System.IdentityModel.Tokens.Jwt(JWT)**: It has been used for authentication.
-
-Documentation: [https://docs.microsoft.com/en-us/dotnet/api/system.identitymodel.tokens.jwt](https://docs.microsoft.com/en-us/dotnet/api/system.identitymodel.tokens.jwt)
-
 **FluentValidation:** It has been used for validation of commands and queries.
 
 Documentation: [https://github.com/FluentValidation/FluentValidation](https://github.com/FluentValidation/FluentValidation)
