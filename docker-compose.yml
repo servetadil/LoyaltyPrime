@@ -1,0 +1,19 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  loyaltyprimewebapi:
+    image: loyaltyprimewebapi
+    build:
+      context: .
+      dockerfile: LoyaltyPrime.Web.Api/Dockerfile
+    ports:
+      - 5000:5000
+  ms-sql-server:
+        image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+        environment: 
+          ACCEPT_EULA: "Y"
+          SA_PASSWORD: 'Pa$$word2019'
+        ports:
+          - "1433:1433"

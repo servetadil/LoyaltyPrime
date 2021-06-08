@@ -8,3 +8,29 @@
 2021-06-08 16:11:18.8070 Info Adding target FileTarget(Name=alldata)
 2021-06-08 16:11:18.8146 Info Adding target FileTarget(Name=otherFile-web)
 2021-06-08 16:11:18.8493 Info Validating config: TargetNames=alldata, otherFile-web, ConfigItems=45, FilePath=C:\Users\ServetPC\source\repos\LoyaltyPrime\LoyaltyPrime.Web.Api\bin\Debug\netcoreapp3.1\nlog.config
+2021-06-08 17:15:20.6954 Info Message Template Auto Format enabled
+2021-06-08 17:15:20.7161 Info Loading assembly: NLog.Web.AspNetCore
+2021-06-08 17:15:20.7814 Info Adding target FileTarget(Name=alldata)
+2021-06-08 17:15:20.7927 Info Adding target FileTarget(Name=otherFile-web)
+2021-06-08 17:15:20.8333 Info Validating config: TargetNames=alldata, otherFile-web, ConfigItems=45, FilePath=C:\Users\ServetPC\source\repos\LoyaltyPrime\LoyaltyPrime.Web.Api\bin\Debug\netcoreapp3.1\nlog.config
+2021-06-08 17:17:05.2886 Info Shutdown() called. Logger closing...
+2021-06-08 17:17:05.2886 Info Closing old configuration.
+2021-06-08 17:17:05.3112 Info Logger has been closed down.
+2021-06-08 17:17:18.1483 Info Message Template Auto Format enabled
+2021-06-08 17:17:18.1671 Info Loading assembly: NLog.Web.AspNetCore
+2021-06-08 17:17:18.2251 Info Adding target FileTarget(Name=alldata)
+2021-06-08 17:17:18.2251 Info Adding target FileTarget(Name=otherFile-web)
+2021-06-08 17:17:18.2694 Info Validating config: TargetNames=alldata, otherFile-web, ConfigItems=45, FilePath=C:\Users\ServetPC\source\repos\LoyaltyPrime\LoyaltyPrime.Web.Api\bin\Debug\netcoreapp3.1\nlog.config
+2021-06-08 17:19:52.0571 Info Message Template Auto Format enabled
+2021-06-08 17:19:52.0730 Info Loading assembly: NLog.Web.AspNetCore
+2021-06-08 17:19:52.1245 Info Adding target FileTarget(Name=alldata)
+2021-06-08 17:19:52.1328 Info Adding target FileTarget(Name=otherFile-web)
+2021-06-08 17:19:52.1667 Info Validating config: TargetNames=alldata, otherFile-web, ConfigItems=45, FilePath=C:\Users\ServetPC\source\repos\LoyaltyPrime\LoyaltyPrime.Web.Api\bin\Debug\netcoreapp3.1\nlog.config
+2021-06-08 17:20:01.9029 Info Shutdown() called. Logger closing...
+2021-06-08 17:20:01.9029 Info Closing old configuration.
+2021-06-08 17:20:01.9216 Info Logger has been closed down.
+2021-06-08 17:20:42.0020 Info Message Template Auto Format enabled
+2021-06-08 17:20:42.0175 Info Loading assembly: NLog.Web.AspNetCore
+2021-06-08 17:20:42.0709 Info Adding target FileTarget(Name=alldata)
+2021-06-08 17:20:42.0709 Info Adding target FileTarget(Name=otherFile-web)
+2021-06-08 17:20:42.1169 Info Validating config: TargetNames=alldata, otherFile-web, ConfigItems=45, FilePath=C:\Users\ServetPC\source\repos\LoyaltyPrime\LoyaltyPrime.Web.Api\bin\Debug\netcoreapp3.1\nlog.config
