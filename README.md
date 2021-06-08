@@ -13,7 +13,7 @@ docker-compose up
 ```
 Sql instance will be up from port number : 1433
 
-Api port number : 5001  (localhost:5001/api)
+Api port number : 5000  (localhost:5000/api)
 
 
 ### Install project via Visual Studio IIS Express : 
